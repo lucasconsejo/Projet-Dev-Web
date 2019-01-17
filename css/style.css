@@ -1,0 +1,42 @@
+#fond-home{
+    background-image: url("../img/home/fond-home.jpg");
+    background-size: cover;
+}
+.navbar{
+    font-size: 22px;
+    background-color: #90bedf00;
+}
+#navbar-home{
+    background-color: #90bedf;
+}
+#signin a, #logout a{
+    color: white;
+}
+#signin a:hover, #logout a:hover{
+    color: white;
+    text-decoration: none;
+}
+#connexion{
+    background-color: white;
+    color: rgb(44, 51, 59);
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19);
+}
+#connexion-button, #inscription-button{
+    border-color: rgb(107, 175, 223);
+    background-color: rgb(107, 175, 223);
+}
+.icons{
+   text-align: center;
+}
+#footer{
+    height: 25vh;
+    background-color: #9bb2ce;
+}
+#copyright{
+    height: 5vh;
+    background-color: rgb(44, 51, 59);
+}
+#copyright p{
+    color: white;
+    text-align: center;
+}
