@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Cloud</title>
         <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -79,45 +78,10 @@
                 </div>
             </div>
         </div>
-        
-        <!--
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>Footer</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="copyright">
-            <p>Copyright 2019 - Lucas Consejo</p>
-        </div>
-        -->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script>
-            $('#fond-home').css('height', $(window).height() * 1);
-            $('.vertival-center').css('margin-top', $(window).height() /4);
-
-            $(window).scroll(function() {
-                console.log($(document).scrollTop());
-                if($(document).scrollTop() > 130){
-                    $('.navbar').css('background-color', "#90bedf");
-                    $('.navbar').css('box-shadow', "0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19)");
-                }
-                else{
-                    $('.navbar').css('background-color', "#90bedf00");
-                    $('.navbar').css('box-shadow', "none");
-                }
-            });
-        </script>
+        <script src="./js/home.js"></script>
     </body>
 </html>
