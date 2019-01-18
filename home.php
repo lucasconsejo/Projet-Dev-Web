@@ -3,7 +3,7 @@
         session_start();
 
         if(empty($_SESSION["user_id"])){
-            header("Location: http://localhost/Projet-Dev-Web/index.php");
+            header("Location: http://localhost/Projet-Dev-Web/index.html");
         }
     }
 ?>
@@ -19,7 +19,7 @@
     </head>
 
     <body>
-        <nav id="navbar-home" class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <nav id="navbar-home" class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a href="">
                     <img src="./img/home/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
@@ -31,7 +31,6 @@
                 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="">Accueil<span class="sr-only">(current)</span></a>
                     </div>
                 </div>
 
@@ -42,6 +41,38 @@
            </div>
         </nav>
 
+        <div id="doc-recent" class="container mt-4">
+            <div class="row">
+                <div class="col-md-8 title">
+                    <h4>Mes documents récents</h4>
+                </div>
+
+                <div id="btn-ajouter"class="col-md-4">
+                    <button class="btn">Créer un dossier</button>
+                    <button class="btn">Ajouter un document</button>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div id="bloc-doc-recent" class="col-md-12">
+                    
+                </div>
+                <button class="btn btn-primary mt-3">Tous voir</button>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12 title">
+                    <h4>Documents partagés</h4>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div id="bloc-doc-recent" class="col-md-12">
+                    
+                </div>
+                <button class="btn btn-primary mt-3">Tous voir</button>
+            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

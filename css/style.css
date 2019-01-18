@@ -7,6 +7,7 @@
     background-color: #90bedf00;
 }
 #navbar-home{
+    font-size: 16px;
     background-color: #90bedf;
 }
 #signin a, #logout a{
@@ -39,4 +40,16 @@
 #copyright p{
     color: white;
     text-align: center;
+}
+
+.title, #btn-ajouter{
+    padding-left: 0;
+    padding-right: 0;
+}
+#btn-ajouter button{
+    color: #437091;
+}
+#bloc-doc-recent{
+    border: 1px solid rgb(187, 187, 187);
+    height: 180px;
 }

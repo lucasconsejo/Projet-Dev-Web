@@ -21,6 +21,6 @@
         header("Location: ../../home.php");
     }
     else{
-        header('Location:http://localhost/Projet-Dev-Web/index.php');
+        header('Location:http://localhost/Projet-Dev-Web/index.html');
     }
 ?>
