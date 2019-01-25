@@ -1,18 +1,27 @@
 <?php 
-    if(!isset($_SESSION)){
-        session_start();
+    require('./functions/sessions.php');
+    require('./functions/upload.php');
+    require('./bdd/bdd.php');
 
-        if(empty($_SESSION["user_id"])){
-            header("Location: http://localhost/Projet-Dev-Web/index.html");
-        }
-    }
+    //recent_file();
+
+    $folder_name = $_SESSION['user_id'].". ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname'];
+    $folder = "./upload/".$folder_name;
+
+    $dir = "./upload/".$folder_name."/*.{jpg,jpeg,gif,png,pdf,txt,docx}";
+    $files = glob($dir,GLOB_BRACE);
+
+    $sql = "SELECT * FROM files WHERE id_user= ? ORDER BY updated DESC LIMIT 3";
+    $select_files = $db->prepare($sql);
+    $select_files->execute([$_SESSION["user_id"]]);
+    $results = $select_files->fetchAll();
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Cloud - Home</title>
+        <title>Home - Cloud</title>
         <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/style.css" >
@@ -22,7 +31,7 @@
         <nav id="navbar-home" class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a href="">
-                    <img src="./img/home/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
+                    <img src="./img/accueil/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
                 </a>
                     <a class="navbar-brand" href="">Cloud</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,12 +40,14 @@
                 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="./documents.php">Mes documents</a>
+                        <a class="nav-item nav-link active" href="./shared-documents.php">Partagés avec moi</a>
                     </div>
                 </div>
 
                 <div id="logout">
                     <a href="./profil.php" class="mr-2">Profil</a>
-                    <a href="./php/signin/logout.php">Deconnexion</a>
+                    <a href="./functions/logout.php">Deconnexion</a>
                 </div>
            </div>
         </nav>
@@ -48,16 +59,80 @@
                 </div>
 
                 <div id="btn-ajouter"class="col-md-4">
-                    <button class="btn">Créer un dossier</button>
-                    <button class="btn">Ajouter un document</button>
+                    <a href="./add.php" class="btn float-right">Ajouter un document</a>
                 </div>
             </div>
 
             <div class="row mt-2">
-                <div id="bloc-doc-recent" class="col-md-12">
-                    
+                <div id="table-size" class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Nom</td>
+                                <td>Type</td>
+                                <td>Modification</td>
+                                <td>Dossier</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Détails</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach($results as $result){
+                                foreach($files as $file){
+                                    if(basename($file) == $result["filename"]){
+                                        $extension_path = pathinfo($file);
+                                        $extension = $extension_path["extension"]; 
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php 
+                                        if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
+                                            echo "<img src='./img/home/icon-image.png' width='25px'/>";
+                                        }
+                                        else{
+                                            echo "<img src='./img/home/icon-file.png' width='25px'/>";
+                                        }
+
+                                    ?>                                
+                                </td>
+                                <td>
+                                    <?php 
+                                        if(strlen(basename($file)) >=25){
+                                            echo substr(basename($file), 0, 25)."...";
+                                        }
+                                        else{
+                                            echo basename($file);
+                                        }
+                                    ?>
+                                </td>
+                                <td><?= $extension; ?></td>
+                                <td><?= date("d/m/y H:i:s", filemtime($file)); ?></td>   
+                                <td>
+                                    <?php 
+                                        if($result["folder"] == "none"){
+                                            echo "Aucun";
+                                        }
+                                        else{
+                                            echo $result["folder"];
+                                        }
+                                    ?>                                       
+                                </td>
+                                <td><a href="<?= $file; ?>" download>Télécharger</a></td>
+                                <td><a href="">Partager</a></td>
+                                <td><a href="">Supprimer</a></td>
+                                <td><a href="">Détails</a></td>
+                            </tr>
+                        <?php  }
+                            }
+                        } 
+                        ?>
+                        </tbody>
+                    </table>
                 </div>
-                <button class="btn btn-primary mt-3">Tous voir</button>
             </div>
 
             <div class="row mt-5">
@@ -67,10 +142,26 @@
             </div>
 
             <div class="row mt-2">
-                <div id="bloc-doc-recent" class="col-md-12">
-                    
+                <div id="table-size" class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Nom</td>
+                                <td>Type</td>
+                                <td>Modification</td>
+                                <td>Dossier</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Détails</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
                 </div>
-                <button class="btn btn-primary mt-3">Tous voir</button>
             </div>
         </div>
 

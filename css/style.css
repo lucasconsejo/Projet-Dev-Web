@@ -1,5 +1,5 @@
 #fond-home{
-    background-image: url("../img/home/fond-home.jpg");
+    background-image: url("../img/accueil/fond-home.jpg");
     background-size: cover;
 }
 .navbar{
@@ -7,7 +7,7 @@
     background-color: #90bedf00;
 }
 #navbar-home{
-    font-size: 16px;
+    font-size: 15px;
     background-color: #90bedf;
 }
 #signin a, #logout a{
@@ -46,10 +46,17 @@
     padding-left: 0;
     padding-right: 0;
 }
-#btn-ajouter button{
-    color: #437091;
+#btn-ajouter a{
+    color: #ffffff;
+    background-color: #90bedf;
 }
-#bloc-doc-recent{
-    border: 1px solid rgb(187, 187, 187);
-    height: 180px;
+#table-size{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#tous-voir{
+    border-color: white;
+    border-color: white;
+    padding: 0;
+    color: #3e6886;
 }

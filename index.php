@@ -1,3 +1,10 @@
+<?php 
+    require('./functions/members.php');
+
+    if(isset($_POST['submit'])){
+        login();
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +19,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <div class="container">
                 <a href="">
-                    <img src="./img/home/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
+                    <img src="./img/accueil/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
                 </a>
                 <a class="navbar-brand" href="">Cloud</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +49,7 @@
 
                     <div id="connexion" class="col-md-5 pt-5 pb-5  vertival-center">
                         <h3>Connexion</h3>
-                        <form method="POST" action="./php/signin/login.php">
+                        <form method="POST" action="">
                             <div class="form-group">
                                 <label for="input-email">Email</label>
                                 <input type="email" class="form-control" id="input-email" name="email" aria-describedby="emailHelp" placeholder="Email">
@@ -52,7 +59,7 @@
                                 <input type="password" class="form-control" id="input-password" name="mdp" placeholder="Mot de passe">
                             </div>
                             <div id="submit">
-                                <button id="connexion-button" type="submit" class="btn btn-dark mt-2">Connexion</button>
+                                <button id="connexion-button" name="submit" type="submit" class="btn btn-dark mt-2">Connexion</button>
                             </div>
                         </form>
                     </div>
@@ -63,17 +70,17 @@
         <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-md-4 icons">
-                    <img src="./img/home/icons/icon-storage.png" alt="icon capacity storage" />
+                    <img src="./img/accueil/icons/icon-storage.png" alt="icon capacity storage" />
                     <h5>2 To de stockage</h5>
                 </div>
 
                 <div class="col-md-4 icons">
-                    <img src="./img/home/icons/icon-cloud.png" alt="icon capacity storage" />
+                    <img src="./img/accueil/icons/icon-cloud.png" alt="icon capacity storage" />
                     <h5>Vos documents accessibles depuis n'importe où</h5>
                 </div>
 
                 <div class="col-md-4 icons">
-                    <img src="./img/home/icons/icon-share.png" alt="icon capacity storage" />
+                    <img src="./img/accueil/icons/icon-share.png" alt="icon capacity storage" />
                     <h5>Partagez vos documents pour collaborer avec d'autres</h5>
                 </div>
             </div>
