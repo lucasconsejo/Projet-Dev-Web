@@ -5,13 +5,13 @@
 
     //recent_file();
 
-    $folder_name = $_SESSION['user_id'].". ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname'];
+    $folder_name = $_SESSION['user_id']."_".$_SESSION['user_firstname']."_".$_SESSION['user_lastname'];
     $folder = "./upload/".$folder_name;
 
     $dir = "./upload/".$folder_name."/*.{jpg,jpeg,gif,png,pdf,txt,docx}";
     $files = glob($dir,GLOB_BRACE);
 
-    $sql = "SELECT * FROM files WHERE id_user= ? ORDER BY updated DESC LIMIT 3";
+    $sql = "SELECT * FROM files WHERE id_user= ? AND filename!= 'none' ORDER BY updated DESC LIMIT 3";
     $select_files = $db->prepare($sql);
     $select_files->execute([$_SESSION["user_id"]]);
     $results = $select_files->fetchAll();

@@ -3,11 +3,17 @@
     require('./functions/upload.php');
     require('./bdd/bdd.php');
 
-    $folder_name = $_SESSION['user_id'].". ".$_SESSION['user_firstname']." ".$_SESSION['user_lastname'];
+    if(isset($_GET["delete"])){
+        delete_file($_GET["delete"]);
+    }
+
+    $folder_name = $_SESSION['user_id']."_".$_SESSION['user_firstname']."_".$_SESSION['user_lastname'];
     $folder = "./upload/".$folder_name;
 
-    $dir = "./upload/".$folder_name."/*.{jpg,jpeg,gif,png,pdf,txt,docx}";
-    $files = glob($dir,GLOB_BRACE);
+    $dir_only_file = "./upload/".$folder_name."/*.{jpg,jpeg,gif,png,pdf,txt,docx}";
+    $dir_only_folder = "./upload/".$folder_name."/*";
+    $files = glob($dir_only_file,GLOB_BRACE);
+    $folders = glob($dir_only_folder,GLOB_ONLYDIR);
 
     $sql = "SELECT * FROM files WHERE id_user= ? ORDER BY updated DESC";
     $select_files = $db->prepare($sql);
@@ -56,8 +62,8 @@
                 </div>
 
                 <div id="btn-ajouter"class="col-md-4">
-                    <button class="btn float-right">Créer un dossier</button>
-                    <button class="btn float-right mr-2">Ajouter un document</button>
+                    <a href="./add_folder.php" class="btn float-right">Créer un dossier</a>
+                    <a href="./add.php" class="btn float-right mr-2">Ajouter un document</a>
                 </div>
             </div>
 
@@ -78,17 +84,47 @@
                         </thead>
                         <tbody>
                             <?php
+
                                 foreach($results as $result){
-                                    foreach($files as $file){
-                                        if(basename($file) == $result["filename"]){
-                                            $extension_path = pathinfo($file);
-                                            $extension = $extension_path["extension"]; 
+                                    foreach($folders as $folder){
+                                        if(basename($folder) == $result["folder"]){
+                                            //zip_folder($folder,  $folder_name);
+                            ?>
+                                <tr>
+                                    <td><img src='./img/home/icon-folder.png' width='25px'/></td>
+                                    <td>
+                                        <?php 
+                                            if(strlen(basename($folder)) >=25){
+                                                echo substr(basename($folder), 0, 25)."...";
+                                            }
+                                            else{
+                                                echo basename($folder);
+                                            }
+                                        ?>
+                                    </td>
+                                    <td></td>
+                                    <td><?= date("d/m/y H:i:s", filemtime($folder)); ?></td>   
+                                    <td><a href="./upload/<?= $folder_name."/".$result["folder"].".zip"; ?>" download>Télécharger</a></td>
+                                    <td><a href="">Partager</a></td>
+                                    <td><a href="">Supprimer</a></td>
+                                    <td><a href="">Détails</a></td>
+                                </tr>
+                            
+                            <?php   }
+                                }
+                                foreach($files as $file){
+                                    if(basename($file) == $result["filename"]){
+                                        $extension_path = pathinfo($file);
+                                        $extension = $extension_path["extension"]; 
                             ?>
                                 <tr>
                                     <td>
                                         <?php 
                                             if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
                                                 echo "<img src='./img/home/icon-image.png' width='25px'/>";
+                                            }
+                                            elseif ($result["folder"] != "none") {
+                                                echo "<img src='./img/home/icon-folder.png' width='25px'/>";
                                             }
                                             else{
                                                 echo "<img src='./img/home/icon-file.png' width='25px'/>";
@@ -110,7 +146,7 @@
                                     <td><?= date("d/m/y H:i:s", filemtime($file)); ?></td>   
                                     <td><a href="<?= $file; ?>" download>Télécharger</a></td>
                                     <td><a href="">Partager</a></td>
-                                    <td><a href="">Supprimer</a></td>
+                                    <td><a href="./documents.php?delete=<?= basename($file); ?>">Supprimer</a></td>
                                     <td><a href="">Détails</a></td>
                                 </tr>
                             <?php  }
