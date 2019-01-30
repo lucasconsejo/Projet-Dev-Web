@@ -7,7 +7,7 @@
             }
             if(isset($_FILES['upload']) && !empty($_FILES['upload'])){
                 Add::upload_file();
-                header("Location: ./home.php?page=documents");
+                header("Location: ".PATH."/documents");
             }
         }
 
@@ -41,7 +41,7 @@
                     $insert_file = $db->prepare($sql);
                     $insert_file->execute([$_SESSION["user_id"], $img_name, "none", $new_path, "none"]);
     
-                    header("Location: ./home.php?page=documents");
+                    header("Location: ".PATH."/documents");
                 }
             }
         }

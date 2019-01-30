@@ -4,7 +4,7 @@
         public static function home_delete_file(){
             if(isset($_GET["delete_file"])){
                 Home::delete_file($_GET["delete_file"]);
-                header("Location: ./home.php");
+                header("Location: ".PATH."/home");
             }
         }
 

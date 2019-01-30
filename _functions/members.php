@@ -24,7 +24,7 @@
             $_SESSION['user_password'] = $results[4];
             $_SESSION['user_nuit'] = $results[5];
             
-            header("Location: ./home.php");
+            header("Location: ".PATH."/home");
         }
         else{
             header('Location:http://localhost/Projet-Dev-Web/index.php');

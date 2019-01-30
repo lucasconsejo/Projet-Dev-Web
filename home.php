@@ -1,5 +1,7 @@
 <?php
 
+include_once './_config/config.php';
+
 // Définition de la page courante
 if (isset($_GET['page']) && !empty($_GET['page'])) {
     $page = trim(strtolower($_GET['page']));

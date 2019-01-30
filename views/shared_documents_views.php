@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <title>Partagés avec moi - Cloud</title>
-        <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <?php 
             if(isset($_GET['mode_nuit']) && !empty($_GET['mode_nuit'])){
                 mode_nuit(htmlspecialchars($_GET['mode_nuit']));
-                header("Location: ./home.php?page=shared_documents");
+                header("Location: ".PATH."/shared_documents");
             }
             elseif($_SESSION['user_nuit'] == 'true'){
                 echo "<link rel='stylesheet' type='text/css' href='./assets/css/style_nuit.css' >";
@@ -29,23 +29,23 @@
                 <div class="col-md-3">
                     <div class="row">
                         <div class="col-md-12 menu">
-                            <a href="./home.php">Home</a>
+                            <a href="<?= PATH ?>/home">Home</a>
                         </div>
 
                         <div class="col-md-12 menu mt-2">
-                            <a href="./home.php?page=documents">Mes documents</a>
+                            <a href="<?= PATH ?>/documents">Mes documents</a>
                         </div>
 
                         <div class="col-md-12 menu-active mt-2">
-                            <a href="./home.php?page=shared_documents">Partagés avec moi</a>
+                            <a href="<?= PATH ?>/shared_documents">Partagés avec moi</a>
                         </div>
 
                         <div class="col-md-12 mt-4">
-                            <a href="./home.php?page=add" id="add-file" class="btn"><img src="./assets/img/home/icon-file-white.png" />Ajouter un document</a>
+                            <a href="<?= PATH ?>/add" id="add-file" class="btn"><img src="./assets/img/home/icon-file-white.png" />Ajouter un document</a>
                         </div>
 
                         <div class="col-md-12 mt-3">
-                            <a href="./home.php?page=add_folder" id="add-file" class="btn"><img src="./assets/img/home/icon-folder-white.png" />Nouveau dossier</a>
+                            <a href="<?= PATH ?>/add_folder" id="add-file" class="btn"><img src="./assets/img/home/icon-folder-white.png" />Nouveau dossier</a>
                         </div>
                     </div>
                 </div>

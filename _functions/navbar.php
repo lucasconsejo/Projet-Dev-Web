@@ -29,7 +29,7 @@
                 </div>
 
                 <div id="logout">
-                    <a href="./profil.php" class="mr-2">Profil</a>
+                    <a href="<?= PATH ?>/profil" class="mr-2">Profil</a>
                     <a href="./_functions/logout.php">Deconnexion</a>
                 </div>
             </div>
@@ -57,8 +57,8 @@
 
                 <div id="logout">
                     <a href="?mode_nuit=<?php nuit(); ?>" class="mr-2"><img src="./assets/img/home/icon-moon.png" /></a>
-                    <a href="./home.php?page=notifications" class="mr-2"><img src="./assets/img/home/icon-notif.png" /></a>
-                    <a href="./home.php?page=profil" class="mr-2"><img src="./assets/img/home/icon-profil.png" /></a>
+                    <a href="<?= PATH ?>/notifications" class="mr-2"><img src="./assets/img/home/icon-notif.png" /></a>
+                    <a href="<?= PATH ?>/profil" class="mr-2"><img src="./assets/img/home/icon-profil.png" /></a>
                     <a href="./_functions/logout.php">Deconnexion</a>
                 </div>
            </div>

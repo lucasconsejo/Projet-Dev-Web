@@ -4,12 +4,14 @@
         public static function add_folder(){
 
             if(isset($_POST['submit'])){
-                upload_folder();
+                ADDFolder::upload_folder();
             }
         }
 
         public static function upload_folder(){
             
+            global $db;
+
             if(isset($_POST["upload-folder"]) && !empty($_POST["upload-folder"])){
                 
                 $folder_path = $_SESSION['user_id']."_".$_SESSION['user_firstname']."_".$_SESSION['user_lastname'];
@@ -24,7 +26,7 @@
                 $insert_file = $db->prepare($sql);
                 $insert_file->execute([$_SESSION["user_id"], "none", $folder_name, $new_path, "none"]);
     
-                header("Location: ./home.php?page=documents");
+                header("Location: ".PATH."/documents");
             }
         }
     }

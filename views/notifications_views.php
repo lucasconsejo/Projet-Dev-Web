@@ -30,23 +30,23 @@
                 <div class="col-md-3">
                     <div class="row">
                         <div class="col-md-12 menu">
-                            <a href="./home.php">Home</a>
+                            <a href="<?= PATH ?>/home">Home</a>
                         </div>
 
                         <div class="col-md-12 menu mt-2">
-                            <a href="./home.php?page=documents">Mes documents</a>
+                            <a href="<?= PATH ?>/documents">Mes documents</a>
                         </div>
 
                         <div class="col-md-12 menu mt-2">
-                            <a href="./home.php?page=shared_documents">Partagés avec moi</a>
+                            <a href="<?= PATH ?>/shared_documents">Partagés avec moi</a>
                         </div>
 
                         <div class="col-md-12 mt-4">
-                            <a href="./home.php?page=add" id="add-file" class="btn"><img src="./assets/img/home/icon-file-white.png" />Ajouter un document</a>
+                            <a href="<?= PATH ?>/add" id="add-file" class="btn"><img src="./assets/img/home/icon-file-white.png" />Ajouter un document</a>
                         </div>
 
                         <div class="col-md-12 mt-3">
-                            <a href="./home.php?page=add_folder" id="add-file" class="btn"><img src="./assets/img/home/icon-folder-white.png" />Nouveau dossier</a>
+                            <a href="<?= PATH ?>/add_folder" id="add-file" class="btn"><img src="./assets/img/home/icon-folder-white.png" />Nouveau dossier</a>
                         </div>
                     </div>
                 </div>

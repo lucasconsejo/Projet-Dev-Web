@@ -6,12 +6,12 @@
 
             if(isset($_GET["delete_file"])){
                 Documents::delete_file($_GET["delete_file"]);
-                header("Location: ./home.php?page=documents");
+                header("Location: ".PATH."/documents");
             }
         
             if(isset($_GET["delete_folder"])){
                 Documents::delete_folder($_GET["delete_folder"]);
-                header("Location: ./home.php?page=documents");
+                header("Location: ".PATH."/documents");
             }
         }
 
@@ -79,7 +79,7 @@
             $insert_file = $db->prepare($sql);
             $insert_file->execute([$folder]);
 
-            header("Location: ./home.php?page=documents");
+            header("Location: ".PATH."/documents");
         }
     }
 ?>
