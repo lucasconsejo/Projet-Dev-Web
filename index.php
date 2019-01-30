@@ -1,5 +1,5 @@
 <?php 
-    require('./functions/members.php');
+    require('./_functions/members.php');
 
     if(isset($_POST['submit'])){
         login();
@@ -10,16 +10,16 @@
     <head>
         <meta charset="utf-8" />
         <title>Cloud</title>
-        <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./css/style.css" >
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css" >
     </head>
 
     <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <div class="container">
                 <a href="">
-                    <img src="./img/accueil/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
+                    <img src="./assets/img/accueil/logo/logo-cloud.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Cloud">
                 </a>
                 <a class="navbar-brand" href="">Cloud</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,17 +70,17 @@
         <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-md-4 icons">
-                    <img src="./img/accueil/icons/icon-storage.png" alt="icon capacity storage" />
+                    <img src="./assets/img/accueil/icons/icon-storage.png" alt="icon capacity storage" />
                     <h5>2 To de stockage</h5>
                 </div>
 
                 <div class="col-md-4 icons">
-                    <img src="./img/accueil/icons/icon-cloud.png" alt="icon capacity storage" />
+                    <img src="./assets/img/accueil/icons/icon-cloud.png" alt="icon capacity storage" />
                     <h5>Vos documents accessibles depuis n'importe où</h5>
                 </div>
 
                 <div class="col-md-4 icons">
-                    <img src="./img/accueil/icons/icon-share.png" alt="icon capacity storage" />
+                    <img src="./assets/img/accueil/icons/icon-share.png" alt="icon capacity storage" />
                     <h5>Partagez vos documents pour collaborer avec d'autres</h5>
                 </div>
             </div>
@@ -89,6 +89,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="./js/home.js"></script>
+        <script src="./assets/js/home.js"></script>
     </body>
 </html>

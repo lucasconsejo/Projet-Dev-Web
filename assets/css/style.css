@@ -1,0 +1,157 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+#fond-home{
+    background-image: url("../img/accueil/fond-home.jpg");
+    background-size: cover;
+}
+.navbar{
+    font-size: 22px;
+    background-color: #90bedf00;
+}
+#navbar-home{
+    font-size: 15px;
+    background-color: #90bedf;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19);
+}
+#signin a, #logout a{
+    color: white;
+}
+#signin a:hover, #logout a:hover{
+    color: white;
+    text-decoration: none;
+}
+#logout a img{
+    width: 30px;
+}
+#connexion{
+    background-color: white;
+    color: rgb(44, 51, 59);
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19);
+}
+#connexion-button, #inscription-button{
+    border-color: rgb(107, 175, 223);
+    background-color: rgb(107, 175, 223);
+}
+.icons{
+   text-align: center;
+}
+#footer{
+    height: 25vh;
+    background-color: #9bb2ce;
+}
+#copyright{
+    height: 5vh;
+    background-color: rgb(44, 51, 59);
+}
+#copyright p{
+    color: white;
+    text-align: center;
+}
+
+.title, #btn-ajouter{
+    padding-left: 0;
+    padding-right: 0;
+}
+.menu a{
+    color: #399ad9;
+}
+.menu a:hover{
+    color: #90bedf;
+    text-decoration: none;
+}
+.menu-active a{
+    font-size: 25px;
+    color: #1f567a;
+}
+.menu-active a:hover{
+    text-decoration: none;
+}
+#add-file{
+    color: white;
+    background-color: #399ad9;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 20px;
+    box-shadow: 0 5px 8px #adadad;
+}
+#add-file img{
+    width: 25px;
+    padding-right: 2px;
+}
+#table-size{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+table thead th, table thead td{
+    border-top : none!important;
+    border-bottom : none!important;
+}
+tbody td{
+    background-color: rgba(255, 0, 0, 0)!important;
+}
+tbody tr:hover{
+    cursor: pointer;
+    background-color: #3999d925!important;
+}
+#btn-download{
+    color: white;
+    background-color: #399ad9;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 20px;
+    box-shadow: 0 5px 8px #adadad;
+}
+#btn-download:hover{
+    text-decoration: none;
+}
+#img-delete, #img-shared{
+    width: 25px;
+}
+#img-burger{
+    width: 30px;
+    margin-left: 10px;
+}
+#photo-profil img{
+    width: 250px;
+    height: 250px;
+}
+
+#box{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 3px dashed #399ad9;
+    text-align: center;
+    height: 100%;
+}
+#upload-file{
+    border: none;
+    background-color: white;
+    color: #399ad9;
+}
+#upload-file:hover{
+    border: none;
+    cursor: pointer;
+}
+#upload-file:focus{
+    border: none;
+}
+#btn-upload-file{
+    display: none;
+}
+#send-submit{
+    border: none;
+    color: white;
+    background-color: #399ad9;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 20px;
+    box-shadow: 0 5px 8px #adadad;
+    cursor: pointer;
+}
