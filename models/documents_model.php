@@ -81,5 +81,16 @@
 
             header("Location: ".PATH."/documents");
         }
+
+        public static function get_all_user(){
+            global $db;
+
+            $sql = "SELECT id, email FROM users";
+            $select_users = $db->prepare($sql);
+            $select_users->execute();
+            $results = $select_users->fetchAll();
+
+            return $results;
+        }
     }
 ?>

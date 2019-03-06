@@ -1,3 +1,4 @@
 <?php
-    $shared_documents = SharedDocuments::get_shared_documents();
+    $shared_documents = SharedDocuments::shared_documents();
+    $documents = SharedDocuments::get_documents();
 ?>

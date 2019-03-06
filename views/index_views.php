@@ -1,10 +1,3 @@
-<?php 
-    require('./_functions/members.php');
-
-    if(isset($_POST['submit'])){
-        login();
-    }
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +27,7 @@
                 </div>
 
                 <div id="signin">
-                    <a href="./index.html" class="mr-2">Connexion</a>
+                    <a href="<?= PATH ?>/index" class="mr-2">Connexion</a>
                     <a href="./php/signin/signin.php">Inscription</a>
                 </div>
            </div>

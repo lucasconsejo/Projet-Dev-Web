@@ -57,125 +57,133 @@
                         </div>
                     </div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <th>Nom</th>
-                                <th>Type</th>
-                                <th>Modification</th>
-                                <th>Dossier</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <th>Détails</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach($documents as $result){
-                                foreach($files as $file){
-                                    if(basename($file) == $result["filename"]){
-                                        $extension_path = pathinfo($file);
-                                        $extension = $extension_path["extension"]; 
-                            ?>
-                            <tr>
-                                <td onclick="document.location = '<?= $file; ?>';">
-                                    <?php 
-                                        if($_SESSION['user_nuit'] == "true"){
-                                            if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
-                                                echo "<img src='./assets/img/home/icon-image-white.png' width='25px'/>";
-                                            }
-                                            else{
-                                                echo "<img src='./assets/img/home/icon-file-white.png' width='25px'/>";
-                                            }
-                                        }
-                                        else{
-                                            if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
-                                                echo "<img src='./assets/img/home/icon-image.png' width='25px'/>";
-                                            }
-                                            else{
-                                                echo "<img src='./assets/img/home/icon-file.png' width='25px'/>";
-                                            }
-                                        }
-                                    ?>                                
-                                </td>
-                                <td onclick="document.location = '<?= $file; ?>';">
-                                    <?php 
-                                        if(strlen(basename($file)) >=25){
-                                            echo substr(basename($file), 0, 25)."...";
-                                        }
-                                        else{
-                                            echo basename($file);
-                                        }
-                                    ?>
-                                </td>
-                                <td onclick="document.location = '<?= $file; ?>';"><?= $extension; ?></td>
-                                <td onclick="document.location = '<?= $file; ?>';"><?= date("d/m/y H:i:s", filemtime($file)); ?></td>   
-                                <td onclick="document.location = '<?= $file; ?>';">
-                                    <?php 
-                                        if($result["folder"] == "none"){
-                                            echo "Aucun";
-                                        }
-                                        else{
-                                            echo $result["folder"];
-                                        }
-                                    ?>                                       
-                                </td>
-                                <td><a href="<?= $file; ?>" id="btn-download" download>Télécharger</a></td>
-                                <td><a href=""><img id="img-shared" src="
+                    <?php 
+                        if(empty($documents)){
+                            echo "pas de documents";
+                        }
+                        else{
+                    ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Nom</th>
+                                    <th>Type</th>
+                                    <th>Modification</th>
+                                    <th>Dossier</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Détails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 <?php
-                                    if($_SESSION['user_nuit'] == "true"){
-                                        echo "./assets/img/home/icon-shared-white.png";
-                                    }
-                                    else{
-                                        echo "./assets/img/home/icon-shared.png";
-                                    }
+                                foreach($documents as $result){
+                                    foreach($files as $file){
+                                        if(basename($file) == $result["filename"]){
+                                            $extension_path = pathinfo($file);
+                                            $extension = $extension_path["extension"]; 
                                 ?>
-                                " /></a></td>
-                                <td><a href="./home.php?delete_file=<?= basename($file); ?>"><img id="img-delete" src="
+                                <tr>
+                                    <td onclick="document.location = '<?= $file; ?>';">
+                                        <?php 
+                                            if($_SESSION['user_nuit'] == "true"){
+                                                if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
+                                                    echo "<img src='./assets/img/home/icon-image-white.png' width='25px'/>";
+                                                }
+                                                else{
+                                                    echo "<img src='./assets/img/home/icon-file-white.png' width='25px'/>";
+                                                }
+                                            }
+                                            else{
+                                                if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
+                                                    echo "<img src='./assets/img/home/icon-image.png' width='25px'/>";
+                                                }
+                                                else{
+                                                    echo "<img src='./assets/img/home/icon-file.png' width='25px'/>";
+                                                }
+                                            }
+                                        ?>                                
+                                    </td>
+                                    <td onclick="document.location = '<?= $file; ?>';">
+                                        <?php 
+                                            if(strlen(basename($file)) >=25){
+                                                echo substr(basename($file), 0, 25)."...";
+                                            }
+                                            else{
+                                                echo basename($file);
+                                            }
+                                        ?>
+                                    </td>
+                                    <td onclick="document.location = '<?= $file; ?>';"><?= $extension; ?></td>
+                                    <td onclick="document.location = '<?= $file; ?>';"><?= date("d/m/y H:i:s", filemtime($file)); ?></td>   
+                                    <td onclick="document.location = '<?= $file; ?>';">
+                                        <?php 
+                                            if($result["folder"] == "none"){
+                                                echo "Aucun";
+                                            }
+                                            else{
+                                                echo $result["folder"];
+                                            }
+                                        ?>                                       
+                                    </td>
+                                    <td><a href="<?= $file; ?>" id="btn-download" download>Télécharger</a></td>
+                                    <td><a href=""><img id="img-shared" src="
                                     <?php
                                         if($_SESSION['user_nuit'] == "true"){
-                                            echo "./assets/img/home/icon-delete-white.png";
+                                            echo "./assets/img/home/icon-shared-white.png";
                                         }
                                         else{
-                                            echo "./assets/img/home/icon-delete.png";
+                                            echo "./assets/img/home/icon-shared.png";
                                         }
                                     ?>
-                                " /></a></td>
-                                <td><a href=""><img id="img-burger" src="./assets/img/home/icon-burger.png" /></a></td>
-                            </tr>
-                        <?php  }
-                            }
-                        } 
-                        ?>
-                        </tbody>
-                    </table>
+                                    " /></a></td>
+                                    <td><a href="./home.php?delete_file=<?= basename($file); ?>"><img id="img-delete" src="
+                                        <?php
+                                            if($_SESSION['user_nuit'] == "true"){
+                                                echo "./assets/img/home/icon-delete-white.png";
+                                            }
+                                            else{
+                                                echo "./assets/img/home/icon-delete.png";
+                                            }
+                                        ?>
+                                    " /></a></td>
+                                    <td><a href=""><img id="img-burger" src="./assets/img/home/icon-burger.png" /></a></td>
+                                </tr>
+                            <?php  
+                                    }
+                                }
+                            } 
+                            ?>
+                            </tbody>
+                        </table>
+                    <?php } ?>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5>Partagés avec moi récemment</h5>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>Partagés avec moi récemment</h5>
+                            </div>
                         </div>
-                    </div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <th>Nom</th>
-                                <th>Type</th>
-                                <th>Modification</th>
-                                <th>Dossier</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <th>Détails</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Nom</th>
+                                    <th>Type</th>
+                                    <th>Modification</th>
+                                    <th>Dossier</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Détails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>

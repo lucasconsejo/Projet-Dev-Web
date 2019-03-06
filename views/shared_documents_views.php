@@ -65,7 +65,72 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+                            <?php
+                                foreach ($documents as $key => $file) {
+                                    $extension_path = pathinfo($file['path'].$file['filename']);
+                                    $extension = $extension_path["extension"]; 
+                            ?>
+                            <tr>
+                                <td onclick="document.location = '<?= $file; ?>';">
+                                    <?php 
+                                            if($_SESSION['user_nuit'] == "true"){
+                                            if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
+                                                echo "<img src='./assets/img/home/icon-image-white.png' width='25px'/>";
+                                            }
+                                            else{
+                                                echo "<img src='./assets/img/home/icon-file-white.png' width='25px'/>";
+                                            }
+                                        }
+                                        else{
+                                            if($extension == "jpeg" || $extension == "jpg" || $extension == "gif" || $extension == "png"){
+                                                echo "<img src='./assets/img/home/icon-image.png' width='25px'/>";
+                                            }
+                                            else{
+                                                echo "<img src='./assets/img/home/icon-file.png' width='25px'/>";
+                                            }
+                                        }
+                                    ?>                                
+                                </td>
+
+                                <td onclick="document.location = '<?= $file['path'].$file['filename']; ?>';">
+                                    <?php 
+                                        if(strlen(basename($file['path'].$file['filename'])) >=25){
+                                            echo substr(basename($file['path'].$file['filename']), 0, 25)."...";
+                                        }
+                                        else{
+                                            echo basename($file['path'].$file['filename']);
+                                        }
+                                    ?>
+                                </td>
+                                <td onclick="document.location = '<?= $file['path'].$file['filename']; ?>';"><?= $extension; ?></td>
+                                <td onclick="document.location = '<?= $file['path'].$file['filename']; ?>';"><?= date("d/m/y H:i:s", filemtime($file['path'].$file['filename'])); ?></td>   
+                                <td><a href="<?= $file['path'].$file['filename']; ?>" id="btn-download" download>Télécharger</a></td>
+                                <td><img id="img-shared" onclick="btnClick('<?=basename($file['path'].$file['filename']); ?>')" src="
+                                <?php
+                                    if($_SESSION['user_nuit'] == "true"){
+                                        echo "./assets/img/home/icon-shared-white.png";
+                                    }
+                                    else{
+                                        echo "./assets/img/home/icon-shared.png";
+                                    }
+                                ?>
+                                " /></td>
+                                <td><a href="./home.php?page=documents&delete_file=<?= basename($file['path'].$file['filename']); ?>"><img id="img-delete" src="
+                                <?php
+                                    if($_SESSION['user_nuit'] == "true"){
+                                        echo "./assets/img/home/icon-delete-white.png";
+                                    }
+                                    else{
+                                        echo "./assets/img/home/icon-delete.png";
+                                    }
+                                ?>
+                                " /></a></td>
+                                <td><a href=""><img id="img-burger" src="./assets/img/home/icon-burger.png" /></a></td>
+                            </tr>
+
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

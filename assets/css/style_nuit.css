@@ -1,9 +1,9 @@
 body{
-    background-color: rgb(61, 61, 61);
+    background-color: #1c1c1c;
 }
 #navbar-home{
     font-size: 15px;
-    background-color: #252525;
+    background-color: #232323;
     box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19);
 }
 #signin a, #logout a{
@@ -41,13 +41,12 @@ body{
 }
 #add-file{
     color: white;
-    background-color: #252525;
+    background-color: #535353;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 20px;
-    box-shadow: 0 5px 8px rgb(107, 107, 107);
 }
 #add-file img{
     width: 25px;
@@ -72,13 +71,12 @@ tbody tr:hover{
 }
 #btn-download{
     color: white;
-    background-color: #252525;
+    background-color: #535353;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 20px;
-    box-shadow: 0 5px 8px rgb(107, 107, 107);
 }
 #btn-download:hover{
     text-decoration: none;
@@ -97,7 +95,7 @@ tbody tr:hover{
 #box{
     padding-top: 20px;
     padding-bottom: 20px;
-    border: 3px dashed #252525;
+    border: 3px dashed #888888;
     text-align: center;
     height: 100%;
 }
@@ -125,9 +123,12 @@ tbody tr:hover{
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 20px;
-    box-shadow: 0 5px 8px rgb(107, 107, 107);
+    box-shadow: 0 5px 8px rgb(53, 53, 53);
     cursor: pointer;
 }
 #box p,#box h5{
+    color: white;
+}
+#table-size h5{
     color: white;
 }
